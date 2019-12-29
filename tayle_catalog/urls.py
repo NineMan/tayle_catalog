@@ -18,10 +18,11 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 
+#    url(r'^', include('catalog.urls', namespace='catalog')),
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('catalog.urls', namespace='catalog')),
+    url(r'^admin/',   admin.site.urls),
+    url(r'^', include(('catalog.urls', 'catalog'), namespace='catalog')),
 ]
 
 if settings.DEBUG:
