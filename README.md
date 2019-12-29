@@ -15,3 +15,11 @@ Back End. Тестовое задание
 
 Использовать Python3 и Django. Визуальное оформление не сложнее html, без css, js. 
 Плюсом будет упаковка в docker контейнер. 
+
+#### Запуск:
+
+    git clone https://github.com/NineMan/tayle_catalog.git catalog
+
+    cd catalog
+
+    python manage.py runserver
