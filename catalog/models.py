@@ -1,8 +1,5 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-#from django.core import reverse
-#from django.urls import reverse
-
 
 
 class Category(models.Model):
@@ -19,9 +16,8 @@ class Category(models.Model):
 		return self.name
 
 	def get_absolute_url(self):
-		return reverse('shop:product_list_by_category',
+		return reverse('catalog:product_list_by_category',
                         args=[self.slug])
-
 
 
 class Product(models.Model):
@@ -34,7 +30,6 @@ class Product(models.Model):
 	stock = models.PositiveIntegerField()
 	available = models.BooleanField(default=True)
 
-
 	class Meta:
 		ordering = ('name',)
 		verbose_name = 'Товар'
@@ -45,6 +40,5 @@ class Product(models.Model):
 		return self.name
 
 	def get_absolute_url(self):
-		return reverse('shop:product_detail',
+		return reverse('catalog:product_detail',
                         args=[self.id, self.slug])
-

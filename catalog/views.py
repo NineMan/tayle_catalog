@@ -7,7 +7,7 @@ def category_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     return render(request,
-                  'shop/category.html',
+                  'category.html',
                   {'category': category,
                    'categories': categories,
                    })
@@ -21,7 +21,7 @@ def product_list(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
     return render(request,
-                  'shop/product/list.html',
+                  'list.html',
                   {'category': category,
                    'categories': categories,
                    'products': products})
@@ -33,5 +33,5 @@ def product_detail(request, id, slug):
                                 slug=slug,
                                 available=True)
     return render(request,
-                  'shop/product/detail.html',
+                  'detail.html',
                   {'product': product})
